@@ -92,7 +92,7 @@ namespace Google.Protobuf.Reflection
                 new FieldDescriptor(field, file, this, index, generatedCodeInfo?.PropertyNames[index]));
             fieldsInNumberOrder = new ReadOnlyCollection<FieldDescriptor>(fieldsInDeclarationOrder.OrderBy(field => field.FieldNumber).ToArray());
             // TODO: Use field => field.Proto.JsonName when we're confident it's appropriate. (And then use it in the formatter, too.)
-            jsonFieldMap = new ReadOnlyDictionary<string, FieldDescriptor>(fieldsInNumberOrder.ToDictionary(field => JsonFormatter.ToCamelCase(field.Name)));
+            jsonFieldMap = new Dictionary<string, FieldDescriptor>(fieldsInNumberOrder.ToDictionary(field => JsonFormatter.ToCamelCase(field.Name)));
             file.DescriptorPool.AddSymbol(this);
             Fields = new FieldCollection(this);
         }
