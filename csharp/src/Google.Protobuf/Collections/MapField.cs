@@ -37,7 +37,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
-using Google.Protobuf.Compatibility;
 
 namespace Google.Protobuf.Collections
 {

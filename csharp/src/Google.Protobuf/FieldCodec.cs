@@ -30,7 +30,6 @@
 // OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #endregion
 
-using Google.Protobuf.Compatibility;
 using Google.Protobuf.WellKnownTypes;
 using System;
 using System.Collections.Generic;
@@ -347,7 +346,7 @@ namespace Google.Protobuf
     public sealed class FieldCodec<T>
     {
         private static readonly T DefaultDefault;
-        private static readonly bool TypeSupportsPacking = typeof(T).IsValueType() && Nullable.GetUnderlyingType(typeof(T)) == null;
+        private static readonly bool TypeSupportsPacking = typeof(T).IsValueType && Nullable.GetUnderlyingType(typeof(T)) == null;
 
         static FieldCodec()
         {
